@@ -75,18 +75,33 @@ function employeeTrk() {
 }
 
 function viewEmpl() {
-  console.table('view employee');
-  employeeTrk();
+  let query = 'SELECT * FROM employee';
+  connection.query(query, function (err, res) {
+    for (var i = 0; i < res.length; i++) {
+      console.log(res[i].artist);
+    }
+    employeeTrk();
+  });
 }
 
 function viewEmplDept() {
-  console.table('view employee by dept');
-  employeeTrk();
+  let query = 'SELECT * FROM employee';
+  connection.query(query, function (err, res) {
+    for (var i = 0; i < res.length; i++) {
+      console.log(res[i].artist);
+    }
+    employeeTrk();
+  });
 }
 
 function viewEmplMgr() {
-  console.table('view employee by mgr');
-  employeeTrk();
+  let query = 'SELECT * FROM employee';
+  connection.query(query, function (err, res) {
+    for (var i = 0; i < res.length; i++) {
+      console.log(res[i].artist);
+    }
+    employeeTrk();
+  });
 }
 
 function addEmpl() {
@@ -158,7 +173,7 @@ function updtEmplRole() {
 }
 
 function updtEmplMgr() {
-    inquirer
+  inquirer
     .prompt([
       {
         name: 'employee',
