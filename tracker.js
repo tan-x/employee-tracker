@@ -34,25 +34,30 @@ connection.connect((err) => {
 });
 
 function employeeTrk() {
+  // create arrays for query data to be passed into child functions
   let deptArray = [];
   let mgrArray = [];
   let roleArray = [];
   let emplArray = [];
+  // get department list
   connection.query(
     'SELECT department.department FROM trackerdb.department',
     (err, quer) => {
       quer.forEach((dept) => deptArray.push(dept.department));
       deptArray.push(new inquirer.Separator());
+      // get manager list
       connection.query(
         'SELECT department.manager FROM trackerdb.department',
         (err, quer) => {
           quer.forEach((dept) => mgrArray.push(dept.manager));
           mgrArray.push(new inquirer.Separator());
+          //get role list
           connection.query(
             'SELECT role.title FROM trackerdb.role',
             (err, quer) => {
               quer.forEach((role) => roleArray.push(role.title));
               roleArray.push(new inquirer.Separator());
+              // get employee list
               connection.query(
                 'SELECT employee.first_name, employee.last_name FROM trackerdb.employee',
                 (err, quer) => {
@@ -60,7 +65,7 @@ function employeeTrk() {
                     emplArray.push(`${emp.first_name} ${emp.last_name}`)
                   );
                   emplArray.push(new inquirer.Separator());
-
+                  // call inquirer function and pass arrays down
                   inquirerSwitch(deptArray, mgrArray, roleArray, emplArray);
                 }
               );
@@ -72,6 +77,7 @@ function employeeTrk() {
   );
 }
 
+// main inquirer with switch case to run a corresponding function to user's selection
 function inquirerSwitch(dept, mgr, role, emp) {
   inquirer
     .prompt({
