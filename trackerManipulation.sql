@@ -25,3 +25,4 @@ INSERT INTO employee (first_name, last_name, salary, roleID) VALUES ("Tanner", "
 INSERT INTO employee (first_name, last_name, salary, roleID) VALUES ("Hope", "Clayton", 55000, 5);
 INSERT INTO employee (first_name, last_name, salary, roleID) VALUES ("Alicia", "Miranda", 34000, 3);
 INSERT INTO employee (first_name, last_name, salary, roleID) VALUES ("Jay", "Doe", 65000, 7);
+INSERT INTO employee (first_name, last_name, salary, roleID) VALUES ("Wanda", "Smith", 55000, 10);
