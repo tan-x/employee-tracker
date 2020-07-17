@@ -28,7 +28,7 @@ connection.connect((err) => {
 
 function employeeTrk() {
   console.log('------------------------------------------------------------------------------');
-  console.log('\n');
+  console.log('');
 	// create arrays for query data to be passed into child functions
 	let deptArray = [];
 	let mgrArray = [];
